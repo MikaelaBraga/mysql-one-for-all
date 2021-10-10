@@ -54,8 +54,8 @@ CREATE TABLE Canções (
 
 INSERT INTO Canções(nome_cancao, album_id)
 VALUES
-	('Soul For Us', 1),
-	('Reflections Of Magic', 1),
+    ('Soul For Us', 1),
+    ('Reflections Of Magic', 1),
     ('Dance With Her Own', 1),
     ('Troubles Of My Inner Fire', 2),
     ('Time Fireworks', 2),
@@ -84,7 +84,7 @@ CREATE TABLE Histórico_Reprodução (
 
 INSERT INTO Histórico_Reprodução(usuario_id, cancoes_id)
 VALUES
-	(1, 1),
+    (1, 1),
     (1, 6),
     (1, 14),
     (1, 16),
@@ -110,7 +110,7 @@ CREATE TABLE Seguidores_Artistas (
 
 INSERT INTO Seguidores_Artistas(usuario_id, artista_id)
 VALUES
-	(1, 1),
+    (1, 1),
     (1, 4),
     (1, 3),
     (2, 1),
