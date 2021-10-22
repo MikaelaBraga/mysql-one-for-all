@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS SpotifyClone;
-
+DROP DATABASE IF EXISTS SpotifyClone;
+CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE Planos (
@@ -56,17 +56,6 @@ CREATE TABLE Seguidores_Artistas (
         REFERENCES Usuários (usuario_id)
 )  engine = InnoDB;
 
-INSERT INTO Seguidores_Artistas(usuario_id, artista_id)
-VALUES
-    (1, 1),
-    (1, 4),
-    (1, 3),
-    (2, 1),
-    (2, 3),
-    (3, 2),
-    (3, 1),
-    (4, 4);
-    
 INSERT INTO Planos(plano_assinado, valor_plano)
 VALUES ('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
 
@@ -99,7 +88,7 @@ VALUES
     ('Thang Of Thunder', 5),
     ('Words Of Her Life', 5),
     ('Without My Streets', 5);
-    
+
 INSERT INTO Histórico_Reprodução(usuario_id, cancoes_id)
 VALUES
     (1, 1),
@@ -116,3 +105,14 @@ VALUES
     (4, 3),
     (4, 18),
     (4, 11);
+    
+INSERT INTO Seguidores_Artistas(usuario_id, artista_id)
+VALUES
+    (1, 1),
+    (1, 4),
+    (1, 3),
+    (2, 1),
+    (2, 3),
+    (3, 2),
+    (3, 1),
+    (4, 4);
