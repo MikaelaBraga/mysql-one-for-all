@@ -1,4 +1,4 @@
-CREATE VIEW perfil_artista AS
+CREATE VIEW perfil_artistas AS
 SELECT 
     a.nome_artista AS `artista`,
     abm.nome_album AS `album`,
