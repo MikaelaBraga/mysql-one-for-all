@@ -29,7 +29,7 @@ CREATE TABLE Seguidores_Artistas (
         REFERENCES Artistas (artista_id),
     FOREIGN KEY (usuario_id)
         REFERENCES Usuários (usuario_id),
-	PRIMARY KEY (usuario_id, artista_id)
+    PRIMARY KEY (usuario_id, artista_id)
 )  engine = InnoDB;
 
 CREATE TABLE Álbuns (
@@ -55,7 +55,7 @@ CREATE TABLE Histórico_Reprodução (
         REFERENCES Usuários (usuario_id),
     FOREIGN KEY (cancoes_id)
         REFERENCES Canções (cancoes_id),
-	PRIMARY KEY (usuario_id, cancoes_id)
+    PRIMARY KEY (usuario_id, cancoes_id)
 )  engine = InnoDB;
 
 INSERT INTO Artistas(nome_artista)
