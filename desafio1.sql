@@ -2,6 +2,11 @@ DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE SpotifyClone;
 USE SpotifyClone;
 
+CREATE TABLE Artistas (
+    artista_id INT PRIMARY KEY AUTO_INCREMENT,
+    nome_artista VARCHAR(20) UNIQUE NOT NULL
+)  engine = InnoDB;
+
 CREATE TABLE Planos (
     plano_id INT PRIMARY KEY AUTO_INCREMENT,
     plano_assinado VARCHAR(20) UNIQUE NOT NULL,
@@ -17,9 +22,14 @@ CREATE TABLE Usuários (
         REFERENCES Planos (plano_id)
 )  engine = InnoDB;
 
-CREATE TABLE Artistas (
-    artista_id INT PRIMARY KEY AUTO_INCREMENT,
-    nome_artista VARCHAR(20) UNIQUE NOT NULL
+CREATE TABLE Seguidores_Artistas (
+    usuario_id INT NOT NULL,
+    artista_id INT NOT NULL,
+    FOREIGN KEY (artista_id)
+        REFERENCES Artistas (artista_id),
+    FOREIGN KEY (usuario_id)
+        REFERENCES Usuários (usuario_id),
+	PRIMARY KEY (usuario_id, artista_id)
 )  engine = InnoDB;
 
 CREATE TABLE Álbuns (
@@ -44,26 +54,18 @@ CREATE TABLE Histórico_Reprodução (
     FOREIGN KEY (usuario_id)
         REFERENCES Usuários (usuario_id),
     FOREIGN KEY (cancoes_id)
-        REFERENCES Canções (cancoes_id)
+        REFERENCES Canções (cancoes_id),
+	PRIMARY KEY (usuario_id, cancoes_id)
 )  engine = InnoDB;
 
-CREATE TABLE Seguidores_Artistas (
-    usuario_id INT NOT NULL,
-    artista_id INT NOT NULL,
-    FOREIGN KEY (artista_id)
-        REFERENCES Artistas (artista_id),
-    FOREIGN KEY (usuario_id)
-        REFERENCES Usuários (usuario_id)
-)  engine = InnoDB;
+INSERT INTO Artistas(nome_artista)
+VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO Planos(plano_assinado, valor_plano)
 VALUES ('gratuito', 0), ('familiar', 7.99), ('universitário', 5.99);
 
 INSERT INTO Usuários(nome_usuario, idade_usuario, plano_id)
 VALUES ('Thati', 23, 1), ('Cintia', 35, 2), ('Bill', 20, 3), ('Roger', 45, 1);
-
-INSERT INTO Artistas(nome_artista)
-VALUES ('Walter Phoenix'), ('Peter Strong'), ('Lance Day'), ('Freedie Shannon');
 
 INSERT INTO Álbuns(nome_album, artista_id)
 VALUES ('Envious', 1), ('Exuberant', 1), ('Hallowed Steam', 2), ('Incandescent', 3), ('Temporary Culture', 4);
