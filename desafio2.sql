@@ -1,4 +1,4 @@
-CREATE VIEW estastisticas_musicais AS
+CREATE VIEW estatisticas_musicais AS
     SELECT 
         COUNT(cancoes_id) AS `cancoes`,
         (SELECT 
@@ -8,6 +8,6 @@ CREATE VIEW estastisticas_musicais AS
         (SELECT 
                 COUNT(album_id)
             FROM
-                SpotifyClone.Álbuns) AS albuns
+                SpotifyClone.Álbuns) AS `albuns`
     FROM
         SpotifyClone.Canções;
